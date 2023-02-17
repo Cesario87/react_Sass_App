@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 class Nav extends Component {
   render() {
-    return <nav>
+    return <nav className="event-container">
       <Link to="/">Home</Link>
       <Link to="/infolist">To do</Link>
       <Link to="/weather">Weather</Link>
