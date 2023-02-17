@@ -7,13 +7,19 @@ import { v4 as uuidv4 } from 'uuid';
 
 class InfoList extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      tasks: data, //[] de datos iniciales
-      newTask: "", //Nombre de la tarea que estoy creando
-    }
+      tasks: [], // Inicialmente no hay tareas cargadas
+      newTask: "",
+    };
   }
+
+  // componentDidMount() {
+  //   fetch('tareas.json')
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ tasks: data }));
+  // }
 
   deleteTask = (i) => {
     const remainingTasks = this.state.tasks.filter((task, j) => i !== j);
