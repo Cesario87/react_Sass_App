@@ -1,7 +1,6 @@
 import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
-// import Card from './components/Main/Card';
 import { BrowserRouter } from 'react-router-dom';
 import { userContext } from './context/userContext';
 import { useState } from 'react';

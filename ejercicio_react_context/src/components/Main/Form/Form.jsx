@@ -22,20 +22,20 @@ class Form extends Component {
   }
 
   sendName = () => {
-    const { login } = this.context;
     const { username, email, photoURL, age } = this.state;
-
-    login(username, email, photoURL, age); // pass individual values to login function
-
-    alert("Data has been sent");
-
+    const data = { username, email, photoURL, age };
+    this.context.login(username); // pass only the username to the login function
+    this.props.onDataChange(data); // call the callback prop to update the parent state
+  
+    alert('Data has been sent');
+  
     // reset the state and clear the input fields
-    this.setState({ username: "", email: "", photoURL: "", age: "" });
-    this.username.current.value = "";
-    this.email.current.value = "";
-    this.photoURL.current.value = "";
-    this.age.current.value = "";
-  }
+    this.setState({ username: '', email: '', photoURL: '', age: '' });
+    this.username.current.value = '';
+    this.email.current.value = '';
+    this.photoURL.current.value = '';
+    this.age.current.value = '';
+  };
 
   handleChange() {
     const username = this.username.current.value; //Leer campo por referencia
