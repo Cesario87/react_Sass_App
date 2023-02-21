@@ -4,3 +4,24 @@
     justify-content:space-evenly;
     
 }
+
+@mixin column-disposition {
+    display: flex;
+    flex-direction: column;
+
+    width: 20%;
+
+}
+
+@mixin cards-disposition {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+@mixin cards-size {
+    margin: 2% 2%;
+    padding: 1% 0%;
+    border: solid rgb(198, 183, 183);
+}

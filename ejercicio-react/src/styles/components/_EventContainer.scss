@@ -3,5 +3,8 @@
 
 .event-container {
     @include row-disposition;
+}
 
+.event-container2 {
+    @include column-disposition;
 }

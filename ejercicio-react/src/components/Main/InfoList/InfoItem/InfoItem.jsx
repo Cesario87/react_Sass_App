@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './InfoItem.css'
+import './InfoItem.css';
 
 class InfoItem extends Component {
   //rconst

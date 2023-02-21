@@ -10,7 +10,7 @@ class InfoList extends Component {
     super(props);
 
     this.state = {
-      tasks: [], // Inicialmente no hay tareas cargadas
+      tasks: data, // Inicializamos con los datos del archivo JSON
       newTask: "",
     };
   }
@@ -65,9 +65,8 @@ class InfoList extends Component {
       >
         <label htmlFor="taskName">Add a task:</label><br />
         <TextField
-          required
           id="taskName"
-          label="Required"
+          label="Your task"
           defaultValue=""
         />
 
