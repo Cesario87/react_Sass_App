@@ -1,4 +1,9 @@
 import React from 'react';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 function WeatherCards(props) {
   const { defaultList } = props;
@@ -20,17 +25,41 @@ function WeatherCards(props) {
   }
 
   return (
-    <div>
-      <h1>Forecast:</h1>
+    <div className="weatherCardFormat">
       {defaultList.map(cityWeather =>
-        <div key={cityWeather.dt}>
-          <p>{cityWeather.dt_txt}</p>
-          <p>{kelvinToCelsius(cityWeather.main.temp)}ºC</p>
-          <img src={getWeatherImage(cityWeather.weather[0].main)} alt={cityWeather.weather[0].main} />
-          <br />
-        </div>
-      )}
+        <Card 
+        className="weatherCardSize" 
+        key={cityWeather.dt} 
+        sx={{ maxWidth: 250 }}>
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              image={getWeatherImage(cityWeather.weather[0].main)}
+              alt={cityWeather.weather[0].main}
+              sx={{ width: 200, height: 120, paddingLeft: 2 }}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h8" component="div" sx={{ width: 200, height: 20 }}>
+                {cityWeather.dt_txt}
+              </Typography>
+              <Typography variant="h2" color="text.secondary" sx={{ paddingLeft: 4 }}>
+                {kelvinToCelsius(cityWeather.main.temp)}ºC
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+        </Card>
+      )};
     </div>
+    // <div>
+    //   {defaultList.map(cityWeather =>
+    //     <div key={cityWeather.dt}>
+    //       <p>{cityWeather.dt_txt}</p>
+    //       <p>{kelvinToCelsius(cityWeather.main.temp)}ºC</p>
+    //       <img src={getWeatherImage(cityWeather.weather[0].main)} alt={cityWeather.weather[0].main} />
+    //       <br />
+    //     </div>
+    //   )}
+    // </div>
   );
 }
 

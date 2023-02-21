@@ -1,0 +1,9 @@
+@import '../utils/mixins.scss';
+
+.weatherCardFormat {
+    @include cards-disposition;
+}
+
+.weatherCardSize {
+    @include cards-size;
+}

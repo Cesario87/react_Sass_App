@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './InfoItem.css'
+import './InfoItem.css';
 
 class InfoItem extends Component {
   //rconst
@@ -12,7 +12,7 @@ class InfoItem extends Component {
   }
 
   render() {
-    return (<article className={this.state.task.completed ? 'completed' : ''}>
+    return (<article className="button-set">
       <label>{this.props.data.title}</label>
       <button onClick={this.props.remove}>🗑</button>
     </article>

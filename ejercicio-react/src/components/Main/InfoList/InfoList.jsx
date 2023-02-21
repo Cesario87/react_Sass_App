@@ -1,17 +1,25 @@
 import React, { Component } from "react";
 import InfoItem from './InfoItem';
 import data from './tareas.json';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import { v4 as uuidv4 } from 'uuid';
 
 class InfoList extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      tasks: data, //[] de datos iniciales
-      newTask: "", //Nombre de la tarea que estoy creando
-    }
+      tasks: data, // Inicializamos con los datos del archivo JSON
+      newTask: "",
+    };
   }
+
+  // componentDidMount() {
+  //   fetch('tareas.json')
+  //     .then(response => response.json())
+  //     .then(data => this.setState({ tasks: data }));
+  // }
 
   deleteTask = (i) => {
     const remainingTasks = this.state.tasks.filter((task, j) => i !== j);
@@ -34,8 +42,7 @@ class InfoList extends Component {
     const taskName = event.target.taskName.value;
 
     const newTask = {
-      name: taskName,
-      completed: false
+      title: taskName,
     };
 
     alert("Task added!!!");
@@ -45,13 +52,26 @@ class InfoList extends Component {
   handleChange = (event) => this.setState({ newTask: event.target.value })
 
   render() {
-    return <section>
-      <h2>To do list</h2>
-      <form onSubmit={this.handleSubmit}>
+    return <section className="button-set">
+      <h2>TO DO LIST</h2>
+      <Box
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        onSubmit={this.handleSubmit}
+      >
         <label htmlFor="taskName">Add a task:</label><br />
-        <input type="text" id="taskName" name="taskName" onChange={this.handleChange} /><br />
+        <TextField
+          id="taskName"
+          label="Your task"
+          defaultValue=""
+        />
+
         <input type="submit" value="Add" />
-      </form>
+      </Box>
 
       <button onClick={this.removeAllTasks}>Remove all tasks</button>
       <button onClick={this.restoreTasks}>Restore all tasks</button>
